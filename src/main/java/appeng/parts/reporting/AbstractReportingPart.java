@@ -20,6 +20,8 @@ package appeng.parts.reporting;
 
 import java.io.IOException;
 
+import javax.annotation.Nonnull;
+
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
@@ -31,6 +33,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
+import net.minecraftforge.client.model.data.IModelData;
 
 import appeng.api.implementations.IPowerChannelState;
 import appeng.api.implementations.parts.IMonitorPart;
@@ -41,6 +44,7 @@ import appeng.api.networking.events.MENetworkPowerStatusChange;
 import appeng.api.parts.IPartCollisionHelper;
 import appeng.api.parts.IPartModel;
 import appeng.api.util.AEPartLocation;
+import appeng.client.render.cablebus.PartSpinModelData;
 import appeng.me.GridAccessException;
 import appeng.parts.AEBasePart;
 import appeng.util.Platform;
@@ -273,5 +277,11 @@ public abstract class AbstractReportingPart extends AEBasePart implements IMonit
      * light source 9.
      */
     public abstract boolean isLightSource();
+
+    @Override
+    @Nonnull
+    public IModelData getModelData() {
+        return new PartSpinModelData(this.getSpin());
+    }
 
 }
