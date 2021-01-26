@@ -53,7 +53,7 @@ public class SpatialStorageHelper {
     }
 
     /**
-     * Mostly from dimensional doors.. which mostly got it form X-Comp.
+     * Mostly from dimensional doors.. which mostly got it from X-Comp.
      *
      * @param entity to be teleported entity
      * @param link   destination
